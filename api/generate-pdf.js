@@ -51,19 +51,46 @@ export default async function handler(req, res) {
 
     const page = await browser.newPage();
 
-    // Set A4 size
-    await page.setViewport({
-      width: 794,
-      height: 1123,
-      deviceScaleFactor: 2, // Higher quality
-    });
+    // Build a complete standalone HTML document with all styles inlined
+    const fullHTML = `
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <style>
+            /* Reset */
+            *, *::before, *::after {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            html, body {
+              width: 800px;
+              height: 1131px;
+              overflow: hidden;
+              background: white;
+              -webkit-print-color-adjust: exact !important;
+              print-color-adjust: exact !important;
+            }
+            /* Inject the app's compiled CSS (Tailwind + custom) */
+            ${css || ''}
+          </style>
+        </head>
+        <body>
+          ${html}
+        </body>
+      </html>
+    `;
 
-    // We use a blank page and inject content
-    await page.setContent(html, { waitUntil: 'networkidle0' });
+    // Set A4 size (exact matching the local server dimensions)
+    await page.setViewport({ width: 800, height: 1131, deviceScaleFactor: 2 });
 
-    if (css) {
-      await page.addStyleTag({ content: css });
-    }
+    // Load the HTML content
+    await page.setContent(fullHTML, { waitUntil: 'networkidle0' });
+
+    // Wait a tiny bit for fonts and any CSS to fully settle
+    await new Promise(resolve => setTimeout(resolve, 200));
 
     const pdfBuffer = await page.pdf({
       format: 'A4',
@@ -73,8 +100,9 @@ export default async function handler(req, res) {
     });
 
     res.setHeader('Content-Type', 'application/pdf');
-    res.setHeader('Content-Disposition', 'attachment; filename=resume.pdf');
-    res.send(pdfBuffer);
+    res.setHeader('Content-Disposition', 'attachment; filename="resume.pdf"');
+    res.setHeader('Content-Length', pdfBuffer.length);
+    res.end(pdfBuffer);
 
   } catch (error) {
     console.error('PDF generation error:', error);
