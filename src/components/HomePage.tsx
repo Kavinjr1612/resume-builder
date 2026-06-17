@@ -2,6 +2,7 @@ import React from 'react';
 import { FileText, Download, Smartphone, ArrowRight, Users, Clock, Shield, TrendingUp, Mail, Linkedin, User } from 'lucide-react';
 import BlogSection from './BlogSection';
 import ComparisonSection from './ComparisonSection';
+import FadeInSection from './FadeInSection';
 
 interface HomePageProps {
   onGetStarted: () => void;
@@ -50,6 +51,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       </header>
 
       {/* Hero Section */}
+      <FadeInSection>
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 font-display mb-4 sm:mb-6 leading-tight">
@@ -98,6 +100,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       </section>
 
       {/* Features Section */}
+      <FadeInSection>
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-4">
@@ -141,6 +144,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       </section>
 
       {/* Benefits Section */}
+      <FadeInSection>
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-8 sm:mb-12">
@@ -179,11 +183,13 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       </section>
 
       {/* Blog Section */}
+      <FadeInSection>
       <div id="blog">
         <BlogSection onReadMore={onReadMore} />
       </div>
 
       {/* FAQ Section */}
+      <FadeInSection>
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-8 sm:mb-12">
@@ -215,6 +221,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       </section>
 
       {/* CTA Section */}
+      <FadeInSection>
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-4 sm:mb-6">
@@ -235,6 +242,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       </section>
 
       {/* Footer */}
+      <FadeInSection>
       <footer className="bg-slate-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
