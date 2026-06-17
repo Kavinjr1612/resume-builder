@@ -62,7 +62,8 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
       await generatePDF('resume-for-pdf', data, fileName);
     } catch (error) {
       console.error('Error downloading PDF:', error);
-      alert('Failed to generate PDF. Make sure the PDF server is running (npm run dev).');
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      alert(`Failed to generate PDF. Server says: ${errorMessage}`);
     } finally {
       setIsDownloading(false);
     }
