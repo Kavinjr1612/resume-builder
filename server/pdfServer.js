@@ -89,12 +89,13 @@ app.post('/api/generate-pdf', async (req, res) => {
     // Wait a tiny bit for fonts and any CSS to fully settle
     await new Promise(resolve => setTimeout(resolve, 200));
 
-    // Generate the PDF with exact A4 dimensions
+    // Generate the PDF - STRICTLY 1 page only
     const pdfBuffer = await page.pdf({
       format: 'A4',
       printBackground: true, // Critical: ensures colored backgrounds (teal sidebar, etc.) are rendered
       margin: { top: 0, right: 0, bottom: 0, left: 0 },
       preferCSSPageSize: false,
+      pageRanges: '1', // CRITICAL: Only generate page 1, never allow a second page
     });
 
     // Send the PDF binary back to the client

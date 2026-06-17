@@ -10,7 +10,7 @@ const IntermediateCreativeTemplate: React.FC<Props> = ({ data, showPhoto }) => {
   const { personalInfo, summary, education, experience, skills, projects, technicalSkills, softSkills } = data;
 
   return (
-    <div className="font-sans text-gray-800 bg-white max-w-[800px] mx-auto flex shadow-sm border border-gray-200" style={{ height: '1131px' }}>
+    <div className="font-sans text-gray-800 bg-white max-w-[800px] mx-auto flex shadow-sm border border-gray-200 overflow-hidden" style={{ height: '1131px' }}>
       {/* Left Sidebar */}
       <div className="w-1/3 bg-teal-800 text-white p-6 flex flex-col">
         {showPhoto && (personalInfo?.photo || !personalInfo?.name) && (

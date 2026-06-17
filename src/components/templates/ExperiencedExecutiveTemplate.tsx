@@ -10,7 +10,7 @@ const ExperiencedExecutiveTemplate: React.FC<Props> = ({ data, showPhoto }) => {
   const { personalInfo, summary, education, experience, skills, projects, technicalSkills, softSkills } = data;
 
   return (
-    <div className="font-serif text-gray-900 bg-white p-12 max-w-[800px] mx-auto border border-gray-300 shadow-md relative" style={{ height: '1131px' }}>
+    <div className="font-serif text-gray-900 bg-white p-12 max-w-[800px] mx-auto border border-gray-300 shadow-md relative overflow-hidden" style={{ height: '1131px' }}>
       
       {/* Decorative top bar */}
       <div className="absolute top-0 left-0 w-full h-3 bg-slate-800"></div>

@@ -27,11 +27,11 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
       email: 'karaja1612@gmail.com',
       phone: '+91 98765 43210',
       location: 'Tamil Nadu, India',
-      linkedin: 'https://linkedin.com/in/kavineshsr',
-      github: 'https://github.com/kavineshsr',
+      linkedin: 'linkedin.com/in/kavineshsr',
+      github: 'github.com/kavineshsr',
       photo: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop'
     },
-    summary: 'Recent Computer Science graduate with strong programming skills in Python, JavaScript, and React. Passionate about developing innovative web applications and experienced in agile development methodologies. Seeking to leverage technical expertise and problem-solving abilities in a software development role.',
+    summary: 'CS graduate skilled in Python, JavaScript, and React. Experienced in agile development and building full-stack web applications. Seeking a software development role.',
     education: [
       {
         id: '1',
@@ -41,7 +41,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
         startDate: '2020-08',
         endDate: '2024-05',
         gpa: '3.8/4.0',
-        achievements: 'Dean\'s List (Fall 2022, Spring 2023), Relevant Coursework: Data Structures, Algorithms, Database Systems, Software Engineering'
+        achievements: 'Dean\'s List, Relevant: Data Structures, Algorithms, Databases'
       }
     ],
     experience: [
@@ -51,7 +51,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
         position: 'Software Development Intern',
         startDate: '2023-06',
         endDate: '2023-08',
-        description: '• Developed and maintained web applications using React and Node.js\n• Collaborated with a team of 5 developers on various client projects\n• Implemented responsive designs and improved user experience by 25%\n• Participated in daily stand-ups and sprint planning meetings',
+        description: '• Built web apps using React and Node.js\n• Collaborated with 5 developers on client projects\n• Improved user experience by 25%',
         isCurrentJob: false
       },
       {
@@ -60,7 +60,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
         position: 'Student Web Developer',
         startDate: '2022-09',
         endDate: '2023-05',
-        description: '• Built and maintained university department websites using HTML, CSS, and JavaScript\n• Provided technical support to faculty and staff\n• Updated content management systems and improved site performance\n• Trained 3 new student developers on web development best practices',
+        description: '• Maintained university websites with HTML, CSS, JS\n• Trained 3 new developers on best practices',
         isCurrentJob: false
       }
     ],
@@ -68,36 +68,27 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
       {
         id: '1',
         name: 'E-Commerce Platform',
-        description: 'Built a full-stack e-commerce platform with user authentication, product catalog, shopping cart, and payment integration. Features include real-time inventory management and order tracking.',
-        technologies: 'React, Node.js, MongoDB, Stripe API, JWT',
-        link: 'https://github.com/alexjohnson/ecommerce-platform'
+        description: 'Full-stack e-commerce app with auth, product catalog, cart, and Stripe payments.',
+        technologies: 'React, Node.js, MongoDB, Stripe',
+        link: ''
       },
       {
         id: '2',
         name: 'Task Management App',
-        description: 'Developed a collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features. Implemented using modern web technologies.',
-        technologies: 'Vue.js, Express.js, Socket.io, PostgreSQL',
-        link: 'https://github.com/alexjohnson/task-manager'
-      },
-      {
-        id: '3',
-        name: 'Weather Dashboard',
-        description: 'Created a responsive weather dashboard that displays current conditions and forecasts for multiple cities. Features include geolocation, search functionality, and data visualization.',
-        technologies: 'JavaScript, Chart.js, OpenWeather API, CSS Grid',
-        link: 'https://github.com/alexjohnson/weather-dashboard'
+        description: 'Real-time collaborative task manager with drag-and-drop and team features.',
+        technologies: 'Vue.js, Express, Socket.io, PostgreSQL',
+        link: ''
       }
     ],
     skills: [
-      'JavaScript', 'Python', 'React', 'Node.js', 'HTML/CSS', 'Git', 'MongoDB', 'PostgreSQL',
-      'Communication', 'Teamwork', 'Problem Solving', 'Project Management', 'Agile Development'
+      'JavaScript', 'Python', 'React', 'Node.js', 'HTML/CSS', 'Git', 'MongoDB',
+      'Communication', 'Teamwork', 'Problem Solving'
     ],
     technicalSkills: [
-      'JavaScript', 'Python', 'React', 'Node.js', 'HTML/CSS', 'Git', 'MongoDB', 'PostgreSQL',
-      'Express.js', 'Vue.js', 'TypeScript', 'AWS', 'Docker', 'REST APIs'
+      'JavaScript', 'Python', 'React', 'Node.js', 'HTML/CSS', 'Git', 'MongoDB', 'TypeScript'
     ],
     softSkills: [
-      'Communication', 'Teamwork', 'Problem Solving', 'Project Management', 'Leadership',
-      'Time Management', 'Critical Thinking', 'Adaptability', 'Attention to Detail'
+      'Communication', 'Teamwork', 'Problem Solving', 'Leadership', 'Time Management'
     ]
   };
 
@@ -150,6 +141,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
   };
 
   const addEducation = () => {
+    if (data.education.length >= 2) {
+      alert("Maximum 2 education entries allowed to fit on one page.");
+      return;
+    }
     const newEducation: Education = {
       id: Date.now().toString(),
       institution: '',
@@ -182,6 +177,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
   };
 
   const addExperience = () => {
+    if (data.experience.length >= 3) {
+      alert("Maximum 3 experience entries allowed to fit on one page.");
+      return;
+    }
     const newExperience: Experience = {
       id: Date.now().toString(),
       company: '',
@@ -213,6 +212,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
   };
 
   const addProject = () => {
+    if (data.projects.length >= 3) {
+      alert("Maximum 3 project entries allowed to fit on one page.");
+      return;
+    }
     const newProject: Project = {
       id: Date.now().toString(),
       name: '',
@@ -256,6 +259,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
 
   // Technical Skills Management
   const addTechnicalSkill = () => {
+    if ((data.technicalSkills || []).length >= 8) {
+      alert("Maximum 8 technical skills allowed to fit on one page.");
+      return;
+    }
     if (newTechnicalSkill.trim() && !data.technicalSkills?.includes(newTechnicalSkill.trim())) {
       onUpdateData({
         ...data,
@@ -281,6 +288,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
 
   // Soft Skills Management
   const addSoftSkill = () => {
+    if ((data.softSkills || []).length >= 6) {
+      alert("Maximum 6 soft skills allowed to fit on one page.");
+      return;
+    }
     if (newSoftSkill.trim() && !data.softSkills?.includes(newSoftSkill.trim())) {
       onUpdateData({
         ...data,
@@ -318,6 +329,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
   ];
 
   const addSuggestedTechnicalSkill = (skill: string) => {
+    if ((data.technicalSkills || []).length >= 8) {
+      alert("Maximum 8 technical skills allowed to fit on one page.");
+      return;
+    }
     if (!(data.technicalSkills || []).includes(skill)) {
       onUpdateData({
         ...data,
@@ -327,6 +342,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
   };
 
   const addSuggestedSoftSkill = (skill: string) => {
+    if ((data.softSkills || []).length >= 6) {
+      alert("Maximum 6 soft skills allowed to fit on one page.");
+      return;
+    }
     if (!(data.softSkills || []).includes(skill)) {
       onUpdateData({
         ...data,
@@ -652,11 +671,11 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                         onChange={(e) => updateEducation(edu.id, 'achievements', e.target.value)}
                         className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
                         rows={3}
-                        maxLength={200}
+                        maxLength={150}
                         placeholder="Dean's List, Relevant coursework, Awards, etc."
                       />
                       <div className="text-right mt-1">
-                        <span className="text-xs text-gray-500">{edu.achievements.length}/200 characters</span>
+                        <span className="text-xs text-gray-500">{edu.achievements.length}/150 characters</span>
                       </div>
                     </div>
                   </div>
@@ -764,11 +783,11 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                           onChange={(e) => updateExperience(exp.id, 'description', e.target.value)}
                           className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
                           rows={4}
-                          maxLength={250}
+                          maxLength={200}
                           placeholder="• Developed web applications using React and Node.js&#10;• Collaborated with team of 5 developers on various projects&#10;• Implemented responsive designs and improved user experience"
                         />
                         <div className="text-right mt-1">
-                          <span className="text-xs text-gray-500">{exp.description.length}/250 characters</span>
+                          <span className="text-xs text-gray-500">{exp.description.length}/200 characters</span>
                         </div>
                       </div>
                     </div>
@@ -843,11 +862,11 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                           onChange={(e) => updateProject(project.id, 'description', e.target.value)}
                           className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
                           rows={3}
-                          maxLength={150}
+                          maxLength={120}
                           placeholder="Built a full-stack e-commerce platform with user authentication, product catalog, and payment integration..."
                         />
                         <div className="text-right mt-1">
-                          <span className="text-xs text-gray-500">{project.description.length}/150 characters</span>
+                          <span className="text-xs text-gray-500">{project.description.length}/120 characters</span>
                         </div>
                       </div>
                       <div className="sm:col-span-2">
@@ -890,7 +909,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                   onChange={(e) => updateSummary(e.target.value)}
                   className="w-full p-4 border border-blue-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
                   rows={4}
-                  maxLength={350}
+                  maxLength={250}
                   placeholder="Example: Recent Computer Science graduate with strong programming skills in Python and JavaScript. Passionate about developing innovative web applications and experienced in agile development methodologies. Seeking to leverage technical expertise and problem-solving abilities in a software development role."
                 />
                 <div className="mt-2 flex justify-between items-center">
@@ -898,7 +917,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                     💡 Tip: Include your degree, key skills, and career goals
                   </p>
                   <span className="text-xs text-gray-500">
-                    {data.summary.length}/350 characters
+                    {data.summary.length}/250 characters
                   </span>
                 </div>
               </div>

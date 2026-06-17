@@ -11,7 +11,7 @@ const BoxedTemplate: React.FC<Props> = ({ data, showPhoto }) => {
 
   // Render a boxed layout with borders
   return (
-    <div className="font-sans text-gray-800 bg-white p-8 max-w-[800px] mx-auto border-2 border-gray-800 shadow-sm" style={{ height: '1131px' }}>
+    <div className="font-sans text-gray-800 bg-white p-8 max-w-[800px] mx-auto border-2 border-gray-800 shadow-sm overflow-hidden" style={{ height: '1131px' }}>
       {/* Header section */}
       <div className="border-b-2 border-gray-800 pb-6 mb-6 flex justify-between items-start">
         <div className="flex-1">
