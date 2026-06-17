@@ -57,23 +57,13 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
   const handleDownloadPDF = async () => {
     setIsDownloading(true);
     trackResumeEvents.downloadPDF();
-    
-    // FIX: html2canvas has severe rendering bugs if the element is scaled via CSS.
-    // We temporarily force the scale to 1 to guarantee perfect 1:1 pixel rendering.
-    const originalScale = previewScale;
-    setPreviewScale(1);
-    
-    // Wait 150ms for React to apply the scale=1 DOM update
-    await new Promise(resolve => setTimeout(resolve, 150));
-
     try {
       const fileName = `${(data.personalInfo?.name || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`;
       await generatePDF('resume-for-pdf', data, fileName);
     } catch (error) {
       console.error('Error downloading PDF:', error);
-      alert('Failed to generate PDF. Please try again.');
+      alert('Failed to generate PDF. Make sure the PDF server is running (npm run dev).');
     } finally {
-      setPreviewScale(originalScale);
       setIsDownloading(false);
     }
   };
