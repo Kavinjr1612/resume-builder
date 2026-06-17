@@ -29,8 +29,8 @@ const FadeInSection: React.FC<FadeInSectionProps> = ({ children, delay = 0, clas
           }
         });
       },
-      // Trigger when 10% of the element is visible
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      // Trigger when element crosses 50px inside the viewport from either top or bottom
+      { threshold: 0, rootMargin: '-50px 0px -50px 0px' }
     );
 
     observer.observe(currentRef);
