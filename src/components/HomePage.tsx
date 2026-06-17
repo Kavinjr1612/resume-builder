@@ -30,13 +30,22 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                 Built for Digital Heroes
               </a>
             </div>
-            <button
-              onClick={onGetStarted}
-              className="bg-blue-600 text-white px-3 py-2 sm:px-6 sm:py-2 rounded-full hover:bg-blue-700 hover:shadow-md transition-colors font-medium text-sm sm:text-base"
-            >
-              <span className="hidden sm:inline">Get Started Free</span>
-              <span className="sm:hidden">Start Free</span>
-            </button>
+            <div className="flex items-center space-x-4">
+              <a 
+                href="mailto:karaja1612@gmail.com" 
+                className="hidden sm:flex items-center space-x-2 text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium"
+              >
+                <Mail className="h-4 w-4" />
+                <span>Connect</span>
+              </a>
+              <button
+                onClick={onGetStarted}
+                className="bg-blue-600 text-white px-3 py-2 sm:px-6 sm:py-2 rounded-full hover:bg-blue-700 hover:shadow-md transition-colors font-medium text-sm sm:text-base"
+              >
+                <span className="hidden sm:inline">Get Started Free</span>
+                <span className="sm:hidden">Start Free</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
