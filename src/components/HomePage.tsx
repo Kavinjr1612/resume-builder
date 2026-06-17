@@ -51,9 +51,8 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       </header>
 
       {/* Hero Section */}
-      <FadeInSection>
-      
-        <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
+        <FadeInSection>
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 font-display mb-4 sm:mb-6 leading-tight">
               Create Your Perfect
@@ -94,13 +93,13 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
               </div>
             </div>
           </div>
-        </section>
-      </FadeInSection>
+        
+        </FadeInSection>
+      </section>
 
         {/* Features Section */}
-      <FadeInSection>
-        
-          <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <FadeInSection>
             <div className="max-w-6xl mx-auto">
               <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-4">
                 Why Choose Building You's Free Resume Builder?
@@ -140,13 +139,13 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                 </div>
               </div>
             </div>
-          </section>
-      </FadeInSection>
+          
+        </FadeInSection>
+      </section>
 
           {/* Benefits Section */}
-      <FadeInSection>
-          
-            <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <FadeInSection>
               <div className="max-w-6xl mx-auto">
                 <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-8 sm:mb-12">
                   Perfect for Students & Freshers
@@ -181,21 +180,21 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                   </div>
                 </div>
               </div>
-            </section>
-      </FadeInSection>
+            
+        </FadeInSection>
+      </section>
 
             {/* Blog Section */}
-      <FadeInSection>
-            
-              <div id="blog">
+      <div id="blog">
+        <FadeInSection>
                 <BlogSection onReadMore={onReadMore} />
-              </div>
-      </FadeInSection>
+              
+        </FadeInSection>
+      </div>
 
               {/* FAQ Section */}
-      <FadeInSection>
-              
-                <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <FadeInSection>
                   <div className="max-w-4xl mx-auto">
                     <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-8 sm:mb-12">
                       Frequently Asked Questions
@@ -223,13 +222,13 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                       </div>
                     </div>
                   </div>
-                </section>
-      </FadeInSection>
+                
+        </FadeInSection>
+      </section>
 
                 {/* CTA Section */}
-      <FadeInSection>
-                
-                  <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
+        <FadeInSection>
                     <div className="max-w-4xl mx-auto text-center">
                       <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-4 sm:mb-6">
                         Ready to Build Your Dream Resume?
@@ -246,13 +245,13 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                       </button>
                       <p className="text-blue-100 text-xs sm:text-sm mt-4">No signup required • Takes less than 3 minutes • 100% Free Forever</p>
                     </div>
-                  </section>
-      </FadeInSection>
+                  
+        </FadeInSection>
+      </section>
 
                   {/* Footer */}
-      <FadeInSection>
-                  
-                    <footer className="bg-slate-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-slate-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <FadeInSection>
                       <div className="max-w-6xl mx-auto">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
                           <div>
@@ -325,8 +324,9 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                           </div>
                         </div>
                       </div>
-                    </footer>
-      </FadeInSection>
+                    
+        </FadeInSection>
+      </footer>
                   </div>
                   );
 };
