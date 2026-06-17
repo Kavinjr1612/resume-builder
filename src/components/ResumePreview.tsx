@@ -9,6 +9,8 @@ import {
   determineUserLevel,
   AdaptiveTemplate
 } from '../utils/templateSelector';
+import { calculateATSScore } from '../utils/atsScoring';
+import { ZoomIn, ZoomOut, Maximize, XCircle } from 'lucide-react';
 
 interface ResumePreviewProps {
   data: ResumeData;
@@ -27,6 +29,11 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
 
   const currentTemplate = userTemplates.find(t => t.id === selectedTemplate) || recommendedTemplate;
   const TemplateComponent = currentTemplate.component;
+  const atsResult = calculateATSScore(data);
+
+  const handleZoomIn = () => setPreviewScale(prev => Math.min(prev + 0.1, 1.5));
+  const handleZoomOut = () => setPreviewScale(prev => Math.max(prev - 0.1, 0.3));
+  const handleZoomReset = () => setPreviewScale(getPreviewScale());
 
   // Calculate optimal scale for preview to fit container better
   const getPreviewScale = () => {
@@ -156,21 +163,80 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
         </div>
       </div>
 
-      {/* Resume Canvas Area */}
-      <div className="flex-1 overflow-auto bg-gray-200/50 p-4 sm:p-8 flex justify-center items-start">
-        <div 
-          className="origin-top transition-transform duration-300 ease-out flex justify-center"
-          style={{ transform: `scale(${previewScale})` }}
-        >
+      {/* Resume Canvas Area & Side Widgets */}
+      <div className="flex-1 overflow-auto bg-gray-200/80 p-4 sm:p-8 flex justify-between items-start relative">
+        
+        {/* Left Side: Zoom Controls (Floating) */}
+        <div className="hidden lg:flex flex-col gap-3 sticky top-8 left-8 z-10 bg-white p-2 rounded-xl shadow-lg border border-gray-200">
+          <button onClick={handleZoomIn} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom In">
+            <ZoomIn className="w-5 h-5" />
+          </button>
+          <div className="w-full h-px bg-gray-200 my-1"></div>
+          <button onClick={handleZoomReset} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Fit to Screen">
+            <Maximize className="w-5 h-5" />
+          </button>
+          <div className="w-full h-px bg-gray-200 my-1"></div>
+          <button onClick={handleZoomOut} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom Out">
+            <ZoomOut className="w-5 h-5" />
+          </button>
+          <div className="text-center mt-2 text-xs font-bold text-gray-500">
+            {Math.round(previewScale * 100)}%
+          </div>
+        </div>
+
+        {/* Center: The Resume Canvas */}
+        <div className="flex-1 flex justify-center">
           <div 
-            className="bg-white shadow-2xl relative"
-            style={{ width: '800px', minHeight: '1056px' }}
+            className="origin-top transition-transform duration-300 ease-out flex justify-center"
+            style={{ transform: `scale(${previewScale})` }}
           >
-            <div id="resume-for-pdf" className="w-full h-full bg-white">
-              <TemplateComponent data={data} showPhoto={true} />
+            <div 
+              className="bg-white shadow-2xl relative"
+              style={{ width: '800px', minHeight: '1056px' }}
+            >
+              <div id="resume-for-pdf" className="w-full h-full bg-white">
+                <TemplateComponent data={data} showPhoto={true} />
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Right Side: ATS Scorecard Widget */}
+        <div className="hidden xl:block w-80 sticky top-8 right-8 z-10 bg-white rounded-xl shadow-xl border border-gray-200 overflow-hidden flex-shrink-0">
+          <div className={`p-5 text-white ${atsResult.percentage >= 80 ? 'bg-green-600' : atsResult.percentage >= 50 ? 'bg-yellow-500' : 'bg-red-500'}`}>
+            <h3 className="text-sm font-bold uppercase tracking-wider mb-1 flex items-center">
+              <CheckCircle className="w-4 h-4 mr-2" /> Resume Strength
+            </h3>
+            <div className="flex items-baseline gap-1">
+              <span className="text-4xl font-black">{atsResult.percentage}</span>
+              <span className="text-lg opacity-80">/ 100</span>
+            </div>
+          </div>
+          
+          <div className="p-5 max-h-[60vh] overflow-y-auto">
+            <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3">ATS Scan Results</h4>
+            <div className="space-y-3">
+              {atsResult.checks.map((check, idx) => (
+                <div key={idx} className="flex items-start gap-2">
+                  {check.passed ? (
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                  ) : (
+                    <XCircle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                  )}
+                  <div className="flex-1">
+                    <p className={`text-sm ${check.passed ? 'text-gray-700' : 'text-gray-900 font-medium'}`}>
+                      {check.label}
+                    </p>
+                  </div>
+                  <span className={`text-xs font-bold ${check.passed ? 'text-green-600' : 'text-gray-400'}`}>
+                    +{check.points}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );
