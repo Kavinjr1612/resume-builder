@@ -377,7 +377,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-4 sm:py-8">
+    <div className="min-h-screen bg-slate-50 font-sans py-4 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 mb-4 sm:mb-6">
@@ -385,13 +385,13 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
             <div className="flex items-center space-x-4">
               <button
                 onClick={onBack}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors text-sm sm:text-base"
+                className="flex items-center space-x-2 text-slate-600 hover:text-slate-900 font-display transition-colors text-sm sm:text-base"
               >
                 <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span className="hidden sm:inline">Back to Home</span>
                 <span className="sm:hidden">Back</span>
               </button>
-              <h1 className="text-lg sm:text-2xl font-bold text-gray-900">Free Resume Builder</h1>
+              <h1 className="text-lg sm:text-2xl font-bold text-slate-900 font-display">Free Resume Builder</h1>
             </div>
             <div className="flex space-x-3">
                 <button
@@ -405,7 +405,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                 </button>
                 <button
                   onClick={handlePreview}
-                  className="bg-blue-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 text-sm sm:text-base shadow-sm"
+                  className="bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-blue-700 hover:shadow-md transition-all font-medium flex items-center space-x-2 text-sm sm:text-base shadow-sm"
                 >
                 <Eye className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span>Preview</span>
@@ -422,7 +422,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                 className={`flex-1 min-w-0 py-2 px-2 sm:px-4 rounded-md text-xs sm:text-sm font-medium transition-colors whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'bg-white text-blue-600 shadow-sm'
-                    : 'text-gray-600 hover:text-gray-900'
+                    : 'text-slate-600 hover:text-slate-900 font-display'
                 }`}
               >
                 <span className="hidden sm:inline">{tab.label}</span>
@@ -437,7 +437,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
           {activeTab === 'personal' && (
             <div className="space-y-4 sm:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Personal Information</h2>
+                <h2 className="text-lg sm:text-xl font-semibold text-slate-900 font-display">Personal Information</h2>
                 <div className="text-xs sm:text-sm text-green-600 font-medium">✓ 100% Free - No Signup Required</div>
               </div>
 
@@ -470,7 +470,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                   </div>
                 ) : (
                   <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                    <label className="bg-blue-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-700 transition-colors cursor-pointer flex items-center justify-center space-x-2 text-sm sm:text-base">
+                    <label className="bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-blue-700 hover:shadow-md transition-all font-medium cursor-pointer flex items-center justify-center space-x-2 text-sm sm:text-base">
                       <Upload className="h-3 w-3 sm:h-4 sm:w-4" />
                       <span>Upload Photo</span>
                       <input
@@ -480,7 +480,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                         className="hidden"
                       />
                     </label>
-                    <div className="text-gray-600 text-xs sm:text-sm">
+                    <div className="text-slate-600 text-xs sm:text-sm">
                       <p>Recommended: Professional headshot</p>
                       <p>Format: JPG, PNG • Max size: 5MB</p>
                     </div>
@@ -490,74 +490,74 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Full Name *
                   </label>
                   <input
                     type="text"
                     value={data.personalInfo.name}
                     onChange={(e) => updatePersonalInfo('name', e.target.value)}
-                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-                    placeholder="Kavinesh S R"
+                    className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
+                    placeholder="Shreyansh Singh"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Email Address *
                   </label>
                   <input
                     type="email"
                     value={data.personalInfo.email}
                     onChange={(e) => updatePersonalInfo('email', e.target.value)}
-                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                    className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                     placeholder="karaja1612@gmail.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Phone Number *
                   </label>
                   <input
                     type="tel"
                     value={data.personalInfo.phone}
                     onChange={(e) => updatePersonalInfo('phone', e.target.value)}
-                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                    className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                     placeholder="+1 (555) 123-4567"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     Location
                   </label>
                   <input
                     type="text"
                     value={data.personalInfo.location}
                     onChange={(e) => updatePersonalInfo('location', e.target.value)}
-                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                    className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                     placeholder="New York, NY"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     LinkedIn Profile
                   </label>
                   <input
                     type="url"
                     value={data.personalInfo.linkedin}
                     onChange={(e) => updatePersonalInfo('linkedin', e.target.value)}
-                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                    className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                     placeholder="https://linkedin.com/in/kavinesh-s-r"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     GitHub Profile
                   </label>
                   <input
                     type="url"
                     value={data.personalInfo.github}
                     onChange={(e) => updatePersonalInfo('github', e.target.value)}
-                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                    className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                     placeholder="https://github.com/kavinesh-s-r"
                   />
                 </div>
@@ -568,10 +568,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
           {activeTab === 'education' && (
             <div className="space-y-4 sm:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Education</h2>
+                <h2 className="text-lg sm:text-xl font-semibold text-slate-900 font-display">Education</h2>
                 <button
                   onClick={addEducation}
-                  className="bg-blue-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 text-sm sm:text-base"
+                  className="bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-blue-700 hover:shadow-md transition-all font-medium flex items-center space-x-2 text-sm sm:text-base"
                 >
                   <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span>Add Education</span>
@@ -579,9 +579,9 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
               </div>
 
               {data.education.map((edu, index) => (
-                <div key={edu.id} className="border border-gray-200 rounded-lg p-4 sm:p-6">
+                <div key={edu.id} className="border border-slate-200 rounded-lg p-4 sm:p-6">
                   <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-base sm:text-lg font-medium text-gray-900">Education {index + 1}</h3>
+                    <h3 className="text-base sm:text-lg font-medium text-slate-900 font-display">Education {index + 1}</h3>
                     {data.education.length > 1 && (
                       <button
                         onClick={() => removeEducation(edu.id)}
@@ -593,83 +593,83 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
                         Institution *
                       </label>
                       <input
                         type="text"
                         value={edu.institution}
                         onChange={(e) => updateEducation(edu.id, 'institution', e.target.value)}
-                        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                        className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                         placeholder="University of Example"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
                         Degree *
                       </label>
                       <input
                         type="text"
                         value={edu.degree}
                         onChange={(e) => updateEducation(edu.id, 'degree', e.target.value)}
-                        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                        className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                         placeholder="Bachelor of Science"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
                         Field of Study *
                       </label>
                       <input
                         type="text"
                         value={edu.field}
                         onChange={(e) => updateEducation(edu.id, 'field', e.target.value)}
-                        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                        className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                         placeholder="Computer Science"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
                         GPA (Optional)
                       </label>
                       <input
                         type="text"
                         value={edu.gpa}
                         onChange={(e) => updateEducation(edu.id, 'gpa', e.target.value)}
-                        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                        className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                         placeholder="3.8/4.0"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
                         Start Date
                       </label>
                       <input
                         type="month"
                         value={edu.startDate}
                         onChange={(e) => updateEducation(edu.id, 'startDate', e.target.value)}
-                        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                        className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
                         End Date
                       </label>
                       <input
                         type="month"
                         value={edu.endDate}
                         onChange={(e) => updateEducation(edu.id, 'endDate', e.target.value)}
-                        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                        className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                       />
                     </div>
                     <div className="sm:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 mb-2">
                         Achievements & Activities
                       </label>
                       <textarea
                         value={edu.achievements}
                         onChange={(e) => updateEducation(edu.id, 'achievements', e.target.value)}
-                        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                        className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                         rows={3}
                         maxLength={150}
                         placeholder="Dean's List, Relevant coursework, Awards, etc."
@@ -687,10 +687,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
           {activeTab === 'experience' && (
             <div className="space-y-4 sm:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Work Experience</h2>
+                <h2 className="text-lg sm:text-xl font-semibold text-slate-900 font-display">Work Experience</h2>
                 <button
                   onClick={addExperience}
-                  className="bg-blue-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 text-sm sm:text-base"
+                  className="bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-blue-700 hover:shadow-md transition-all font-medium flex items-center space-x-2 text-sm sm:text-base"
                 >
                   <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span>Add Experience</span>
@@ -698,16 +698,16 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
               </div>
 
               {data.experience.length === 0 ? (
-                <div className="text-center py-6 sm:py-8 text-gray-500 bg-gray-50 rounded-lg">
+                <div className="text-center py-6 sm:py-8 text-gray-500 bg-slate-50 font-sans rounded-lg">
                   <p className="text-base sm:text-lg mb-2">No experience yet? No problem!</p>
                   <p className="text-sm sm:text-base">Include internships, part-time jobs, freelance work, or volunteer experience.</p>
                   <p className="text-xs sm:text-sm mt-2">Add your first experience to get started.</p>
                 </div>
               ) : (
                 data.experience.map((exp, index) => (
-                  <div key={exp.id} className="border border-gray-200 rounded-lg p-4 sm:p-6">
+                  <div key={exp.id} className="border border-slate-200 rounded-lg p-4 sm:p-6">
                     <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-base sm:text-lg font-medium text-gray-900">Experience {index + 1}</h3>
+                      <h3 className="text-base sm:text-lg font-medium text-slate-900 font-display">Experience {index + 1}</h3>
                       <button
                         onClick={() => removeExperience(exp.id)}
                         className="text-red-600 hover:text-red-800 transition-colors"
@@ -717,42 +717,42 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           Company/Organization *
                         </label>
                         <input
                           type="text"
                           value={exp.company}
                           onChange={(e) => updateExperience(exp.id, 'company', e.target.value)}
-                          className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                          className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                           placeholder="Tech Corp Inc."
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           Position/Role *
                         </label>
                         <input
                           type="text"
                           value={exp.position}
                           onChange={(e) => updateExperience(exp.id, 'position', e.target.value)}
-                          className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                          className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                           placeholder="Software Development Intern"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           Start Date
                         </label>
                         <input
                           type="month"
                           value={exp.startDate}
                           onChange={(e) => updateExperience(exp.id, 'startDate', e.target.value)}
-                          className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                          className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           End Date
                         </label>
                         <div className="space-y-2">
@@ -760,7 +760,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                             type="month"
                             value={exp.endDate}
                             onChange={(e) => updateExperience(exp.id, 'endDate', e.target.value)}
-                            className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                            className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                             disabled={exp.isCurrentJob}
                           />
                           <label className="flex items-center space-x-2">
@@ -770,18 +770,18 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                               onChange={(e) => updateExperience(exp.id, 'isCurrentJob', e.target.checked)}
                               className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                             />
-                            <span className="text-xs sm:text-sm text-gray-600">Currently working here</span>
+                            <span className="text-xs sm:text-sm text-slate-600">Currently working here</span>
                           </label>
                         </div>
                       </div>
                       <div className="sm:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           Job Description & Achievements *
                         </label>
                         <textarea
                           value={exp.description}
                           onChange={(e) => updateExperience(exp.id, 'description', e.target.value)}
-                          className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                          className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                           rows={4}
                           maxLength={200}
                           placeholder="• Developed web applications using React and Node.js&#10;• Collaborated with team of 5 developers on various projects&#10;• Implemented responsive designs and improved user experience"
@@ -800,10 +800,10 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
           {activeTab === 'projects' && (
             <div className="space-y-4 sm:space-y-6">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Projects</h2>
+                <h2 className="text-lg sm:text-xl font-semibold text-slate-900 font-display">Projects</h2>
                 <button
                   onClick={addProject}
-                  className="bg-blue-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2 text-sm sm:text-base"
+                  className="bg-blue-600 text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-blue-700 hover:shadow-md transition-all font-medium flex items-center space-x-2 text-sm sm:text-base"
                 >
                   <Plus className="h-3 w-3 sm:h-4 sm:w-4" />
                   <span>Add Project</span>
@@ -811,16 +811,16 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
               </div>
 
               {data.projects.length === 0 ? (
-                <div className="text-center py-6 sm:py-8 text-gray-500 bg-gray-50 rounded-lg">
+                <div className="text-center py-6 sm:py-8 text-gray-500 bg-slate-50 font-sans rounded-lg">
                   <p className="text-base sm:text-lg mb-2">Showcase Your Projects!</p>
                   <p className="text-sm sm:text-base">Include academic projects, personal projects, hackathon entries, or open source contributions.</p>
                   <p className="text-xs sm:text-sm mt-2">Projects are crucial for freshers to demonstrate practical skills.</p>
                 </div>
               ) : (
                 data.projects.map((project, index) => (
-                  <div key={project.id} className="border border-gray-200 rounded-lg p-4 sm:p-6">
+                  <div key={project.id} className="border border-slate-200 rounded-lg p-4 sm:p-6">
                     <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-base sm:text-lg font-medium text-gray-900">Project {index + 1}</h3>
+                      <h3 className="text-base sm:text-lg font-medium text-slate-900 font-display">Project {index + 1}</h3>
                       <button
                         onClick={() => removeProject(project.id)}
                         className="text-red-600 hover:text-red-800 transition-colors"
@@ -830,37 +830,37 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           Project Name *
                         </label>
                         <input
                           type="text"
                           value={project.name}
                           onChange={(e) => updateProject(project.id, 'name', e.target.value)}
-                          className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                          className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                           placeholder="E-commerce Website"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           Technologies Used
                         </label>
                         <input
                           type="text"
                           value={project.technologies}
                           onChange={(e) => updateProject(project.id, 'technologies', e.target.value)}
-                          className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                          className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                           placeholder="React, Node.js, MongoDB"
                         />
                       </div>
                       <div className="sm:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           Project Description *
                         </label>
                         <textarea
                           value={project.description}
                           onChange={(e) => updateProject(project.id, 'description', e.target.value)}
-                          className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                          className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                           rows={3}
                           maxLength={120}
                           placeholder="Built a full-stack e-commerce platform with user authentication, product catalog, and payment integration..."
@@ -870,14 +870,14 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                         </div>
                       </div>
                       <div className="sm:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                           Project Link (GitHub, Demo, etc.)
                         </label>
                         <input
                           type="url"
                           value={project.link}
                           onChange={(e) => updateProject(project.id, 'link', e.target.value)}
-                          className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
+                          className="w-full p-2 sm:p-3 border border-slate-300 bg-white rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors shadow-sm text-sm sm:text-base"
                           placeholder="https://github.com/username/project"
                         />
                       </div>
@@ -891,7 +891,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
           {activeTab === 'summary' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold text-gray-900">Professional Summary & Skills</h2>
+                <h2 className="text-xl font-semibold text-slate-900 font-display">Professional Summary & Skills</h2>
                 <div className="text-sm text-blue-600 font-medium">✓ Essential for ATS Systems</div>
               </div>
 
@@ -923,8 +923,8 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
               </div>
 
               {/* Skills Display Mode Toggle */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Skills Display Options</h3>
+              <div className="border border-slate-200 rounded-lg p-4">
+                <h3 className="text-lg font-semibold text-slate-900 font-display mb-4">Skills Display Options</h3>
                 <div className="flex space-x-4">
                   <label className="flex items-center space-x-2 cursor-pointer">
                     <input
@@ -935,7 +935,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                       onChange={(e) => setSkillsDisplayMode(e.target.value as 'combined' | 'separate')}
                       className="text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="text-sm font-medium text-gray-700">Combined Skills Section</span>
+                    <span className="text-sm font-medium text-slate-700">Combined Skills Section</span>
                   </label>
                   <label className="flex items-center space-x-2 cursor-pointer">
                     <input
@@ -946,7 +946,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                       onChange={(e) => setSkillsDisplayMode(e.target.value as 'combined' | 'separate')}
                       className="text-blue-600 focus:ring-blue-500"
                     />
-                    <span className="text-sm font-medium text-gray-700">Separate Technical & Soft Skills</span>
+                    <span className="text-sm font-medium text-slate-700">Separate Technical & Soft Skills</span>
                   </label>
                 </div>
               </div>
@@ -1098,12 +1098,12 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
               </div>
 
               {/* Tips Section */}
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">✨ Pro Tips for Summary & Skills</h3>
+              <div className="bg-slate-50 font-sans border border-slate-200 rounded-lg p-6">
+                <h3 className="text-lg font-semibold text-slate-900 font-display mb-4">✨ Pro Tips for Summary & Skills</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <h4 className="font-medium text-gray-800 mb-2">Summary Best Practices:</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• Keep it concise (2-3 sentences)</li>
                       <li>• Mention your degree/field</li>
                       <li>• Highlight key achievements</li>
@@ -1113,7 +1113,7 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-800 mb-2">Skills Best Practices:</h4>
-                    <ul className="text-sm text-gray-600 space-y-1">
+                    <ul className="text-sm text-slate-600 space-y-1">
                       <li>• Include 8-15 relevant skills total</li>
                       <li>• Balance technical and soft skills</li>
                       <li>• Use industry keywords</li>

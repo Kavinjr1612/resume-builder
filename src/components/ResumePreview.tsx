@@ -83,13 +83,13 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
   };
 
   return (
-    <div className="h-screen bg-gray-50/50 flex flex-col font-sans overflow-hidden">
+    <div className="h-screen bg-slate-50 font-sans flex flex-col font-sans overflow-hidden">
       
       {/* TOP HEADER (FULL WIDTH) */}
-      <div className="bg-white border-b border-gray-200 px-6 py-4 flex-shrink-0 z-20 shadow-sm relative">
+      <div className="bg-white border-b border-slate-200 px-6 py-4 flex-shrink-0 z-20 shadow-sm relative">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-7xl mx-auto w-full">
           <div className="flex items-center gap-4">
-            <button onClick={onBack} className="text-sm font-semibold text-gray-600 hover:text-gray-900 flex items-center gap-1.5">
+            <button onClick={onBack} className="text-sm font-semibold text-slate-600 hover:text-slate-900 font-display flex items-center gap-1.5">
               <ArrowLeft className="w-4 h-4" /> Back to Home
             </button>
             <div className="w-px h-8 bg-gray-200 hidden sm:block"></div>
@@ -98,20 +98,20 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
                 <Eye className="w-5 h-5" />
               </div>
               <div>
-                <h1 className="text-lg font-black text-gray-900 leading-tight">Resume Preview</h1>
-                <p className="text-xs text-gray-500 font-medium">Your professional resume is ready!</p>
+                <h1 className="text-lg font-black text-slate-900 font-display leading-tight">Resume Preview</h1>
+                <p className="text-xs text-slate-500 font-medium">Your professional resume is ready!</p>
               </div>
             </div>
           </div>
           
           <div className="flex items-center gap-3">
-            <button onClick={onEdit} className="bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-bold py-2.5 px-5 rounded-lg flex items-center gap-2 transition-colors">
+            <button onClick={onEdit} className="bg-gray-100 hover:bg-gray-200 text-slate-700 text-sm font-bold py-2.5 px-5 rounded-lg flex items-center gap-2 transition-colors">
               <Edit2 className="w-4 h-4" /> Edit Resume
             </button>
             <button 
               onClick={handleDownloadPDF}
               disabled={isDownloading}
-              className="bg-teal-600 hover:bg-teal-700 text-white text-sm font-bold py-2.5 px-6 rounded-lg flex items-center gap-2 shadow-md transition-colors"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold py-2.5 px-8 rounded-full flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
             >
               <Download className="w-4 h-4" /> {isDownloading ? 'Downloading...' : 'Download PDF'}
             </button>
@@ -140,13 +140,13 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
         
         {/* LEFT SIDEBAR (Templates) */}
         <div className="hidden md:block w-[280px] lg:w-[300px] xl:w-[320px] flex-shrink-0 bg-transparent p-4 overflow-y-auto space-y-5 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <div className="bg-teal-700 text-white p-5">
+          <div className="bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden">
+            <div className="bg-slate-900 text-white p-5">
               <h2 className="text-base font-bold flex items-center gap-2 mb-1">
                 <Lightbulb className="w-5 h-5" />
                 Smart Template Selection
               </h2>
-              <p className="text-xs text-teal-100 opacity-90 leading-relaxed">
+              <p className="text-xs text-slate-300 opacity-90 leading-relaxed">
                 Templates optimized for {userLevel === 'fresher' ? 'fresh graduates' : 'professionals'}
               </p>
             </div>
@@ -171,15 +171,15 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
                     onClick={() => handleTemplateChange(template.id)}
                     className={`w-full text-left p-3.5 rounded-lg flex justify-between items-center transition-all ${
                       selectedTemplate === template.id
-                        ? 'bg-teal-700 text-white shadow-md'
-                        : 'bg-gray-50 text-gray-700 border border-gray-100 hover:bg-gray-100 hover:border-gray-200'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-gray-50 text-slate-700 border border-gray-100 hover:bg-gray-100 hover:border-slate-200'
                     }`}
                   >
                     <div>
-                      <div className={`text-sm font-bold ${selectedTemplate === template.id ? 'text-white' : 'text-gray-900'}`}>
+                      <div className={`text-sm font-bold ${selectedTemplate === template.id ? 'text-white' : 'text-slate-900 font-display'}`}>
                         {template.name}
                       </div>
-                      <div className={`text-xs mt-0.5 flex items-center gap-1.5 ${selectedTemplate === template.id ? 'text-teal-200' : 'text-gray-500'}`}>
+                      <div className={`text-xs mt-0.5 flex items-center gap-1.5 ${selectedTemplate === template.id ? 'text-blue-200' : 'text-slate-500'}`}>
                         <FileText className="w-3.5 h-3.5" />
                         {template.category.charAt(0).toUpperCase() + template.category.slice(1)}
                       </div>
@@ -211,7 +211,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
                 />
                 <div>
                   <label className="text-sm font-bold text-gray-800 cursor-pointer">Include photo</label>
-                  <p className="text-xs text-gray-500 mt-0.5">Available for this template</p>
+                  <p className="text-xs text-slate-500 mt-0.5">Available for this template</p>
                 </div>
               </div>
 
@@ -228,19 +228,19 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
         <div className="flex-1 overflow-auto p-4 sm:p-6 flex justify-center items-start relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           
           {/* Zoom Controls (Floating Left) */}
-          <div className="hidden lg:flex flex-col gap-3 sticky top-4 left-0 z-10 bg-white p-2 rounded-xl shadow-lg border border-gray-200 h-fit mr-4 flex-shrink-0">
-            <button onClick={handleZoomIn} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom In">
+          <div className="hidden lg:flex flex-col gap-3 sticky top-4 left-0 z-10 bg-white p-2 rounded-xl shadow-lg border border-slate-200 h-fit mr-4 flex-shrink-0">
+            <button onClick={handleZoomIn} className="p-2 text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom In">
               <ZoomIn className="w-5 h-5" />
             </button>
             <div className="w-full h-px bg-gray-200 my-1"></div>
-            <button onClick={handleZoomReset} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Fit to Screen">
+            <button onClick={handleZoomReset} className="p-2 text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Fit to Screen">
               <Maximize className="w-5 h-5" />
             </button>
             <div className="w-full h-px bg-gray-200 my-1"></div>
-            <button onClick={handleZoomOut} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom Out">
+            <button onClick={handleZoomOut} className="p-2 text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom Out">
               <ZoomOut className="w-5 h-5" />
             </button>
-            <div className="text-center mt-2 text-xs font-bold text-gray-500">
+            <div className="text-center mt-2 text-xs font-bold text-slate-500">
               {Math.round(previewScale * 100)}%
             </div>
           </div>
@@ -250,8 +250,8 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
             {/* White Container Header */}
             <div className="bg-indigo-50/50 rounded-t-xl border border-indigo-100 p-6 flex justify-between items-start mb-0 border-b-0">
               <div>
-                <h2 className="text-xl font-black text-gray-900 mb-1">Your Professional Resume</h2>
-                <p className="text-sm text-gray-600 font-medium">Browser preview - Download for perfect A4 formatting</p>
+                <h2 className="text-xl font-black text-slate-900 font-display mb-1">Your Professional Resume</h2>
+                <p className="text-sm text-slate-600 font-medium">Browser preview - Download for perfect A4 formatting</p>
               </div>
               <div className="flex gap-2">
                 <span className="text-[10px] font-bold text-blue-600 bg-blue-100 px-2 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
@@ -280,10 +280,10 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
             </div>
 
             {/* The Actual Resume Canvas */}
-            <div className="bg-gray-100/50 border-x border-gray-200 py-10 flex justify-center overflow-hidden">
+            <div className="bg-gray-100/50 border-x border-slate-200 py-10 flex justify-center overflow-hidden">
               <div 
                 id="resume-scaled-container"
-                className="origin-top transition-transform duration-300 ease-out shadow-2xl"
+                className="origin-top transition-transform duration-300 ease-out shadow-[0_20px_50px_rgba(0,0,0,0.15)] ring-1 ring-black/5"
                 style={{ transform: `scale(${previewScale})`, marginBottom: `-${(1 - previewScale) * 1131}px` }}
               >
                 <div 
@@ -298,8 +298,8 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
             </div>
 
             {/* Bottom Download Bar */}
-            <div className="bg-white border border-gray-200 rounded-b-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4 shadow-sm mb-10">
-              <div className="flex flex-wrap justify-center gap-4 text-xs font-bold text-gray-500">
+            <div className="bg-white border border-slate-200 rounded-b-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4 shadow-sm mb-10">
+              <div className="flex flex-wrap justify-center gap-4 text-xs font-bold text-slate-500">
                 <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-emerald-500"></div> A4 Format (210×297mm)</span>
                 <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-500"></div> High Resolution</span>
                 <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-purple-500"></div> Professional Fonts</span>
@@ -326,17 +326,17 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
               <FileText className="w-5 h-5 text-white" />
             </div>
             <h3 className="text-sm font-bold text-indigo-900 mb-3">PDF Quality Guarantee</h3>
-            <p className="text-xs text-gray-600 leading-relaxed mb-4">
+            <p className="text-xs text-slate-600 leading-relaxed mb-4">
               The preview is <strong className="text-indigo-900">scaled for browser viewing</strong>. Your downloaded PDF will be in <strong className="text-indigo-900">perfect A4 format</strong> with professional spacing, fonts, and layout.
             </p>
             <div className="space-y-2 mb-4">
-              <div className="flex items-center gap-2 text-xs text-gray-700 font-medium">
+              <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
                 <CheckCircle className="w-4 h-4 text-emerald-500" /> A4 Standard Format (210×297mm)
               </div>
-              <div className="flex items-center gap-2 text-xs text-gray-700 font-medium">
+              <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
                 <CheckCircle className="w-4 h-4 text-blue-500" /> ATS-Compatible Structure
               </div>
-              <div className="flex items-center gap-2 text-xs text-gray-700 font-medium">
+              <div className="flex items-center gap-2 text-xs text-slate-700 font-medium">
                 <Star className="w-4 h-4 text-purple-500" /> High-Resolution Output
               </div>
             </div>
@@ -352,19 +352,19 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
               <Star className="w-4 h-4 text-purple-600" /> {userLevel.charAt(0).toUpperCase() + userLevel.slice(1)} Tips
             </h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-xs text-gray-600 leading-relaxed">
+              <li className="flex items-start gap-2 text-xs text-slate-600 leading-relaxed">
                 <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 flex-shrink-0"></div>
                 <span>{userLevel === 'fresher' ? 'Highlight academic projects and achievements' : 'Focus on quantifiable achievements and metrics'}</span>
               </li>
-              <li className="flex items-start gap-2 text-xs text-gray-600 leading-relaxed">
+              <li className="flex items-start gap-2 text-xs text-slate-600 leading-relaxed">
                 <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 flex-shrink-0"></div>
                 <span>{userLevel === 'fresher' ? 'Emphasize relevant coursework and skills' : 'Highlight leadership and cross-functional collaboration'}</span>
               </li>
-              <li className="flex items-start gap-2 text-xs text-gray-600 leading-relaxed">
+              <li className="flex items-start gap-2 text-xs text-slate-600 leading-relaxed">
                 <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 flex-shrink-0"></div>
                 <span>{userLevel === 'fresher' ? 'Include internships and volunteer work' : 'Ensure keywords match the job description (ATS friendly)'}</span>
               </li>
-              <li className="flex items-start gap-2 text-xs text-gray-600 leading-relaxed">
+              <li className="flex items-start gap-2 text-xs text-slate-600 leading-relaxed">
                 <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 flex-shrink-0"></div>
                 <span>Proofread carefully before submitting</span>
               </li>
