@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ResumeData } from '../types/resume';
-import { ArrowLeft, Download, Edit2, Eye, CheckCircle, Star, AlertCircle, Check, FileText, Lightbulb } from 'lucide-react';
+import { ArrowLeft, Download, Edit2, Eye, CheckCircle, Star, AlertCircle, Check, FileText, Lightbulb, ZoomIn, ZoomOut, Maximize } from 'lucide-react';
 import { generatePDF } from '../utils/pdfGenerator';
 import { trackResumeEvents } from '../utils/analytics';
 import { 
@@ -28,6 +28,10 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
 
   const currentTemplate = userTemplates.find(t => t.id === selectedTemplate) || recommendedTemplate;
   const TemplateComponent = currentTemplate.component;
+
+  const handleZoomIn = () => setPreviewScale(prev => Math.min(prev + 0.1, 1.5));
+  const handleZoomOut = () => setPreviewScale(prev => Math.max(prev - 0.1, 0.3));
+  const handleZoomReset = () => setPreviewScale(getPreviewScale());
 
   const getPreviewScale = () => {
     if (typeof window === 'undefined') return 0.8;
@@ -221,7 +225,26 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
         </div>
 
         {/* CENTER CANVAS AREA */}
-        <div className="flex-1 overflow-auto p-4 sm:p-8 flex justify-center items-start">
+        <div className="flex-1 overflow-auto p-4 sm:p-8 flex justify-center items-start relative">
+          
+          {/* Zoom Controls (Floating Left) */}
+          <div className="hidden lg:flex flex-col gap-3 sticky top-4 left-4 z-10 bg-white p-2 rounded-xl shadow-lg border border-gray-200 h-fit mr-6 flex-shrink-0">
+            <button onClick={handleZoomIn} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom In">
+              <ZoomIn className="w-5 h-5" />
+            </button>
+            <div className="w-full h-px bg-gray-200 my-1"></div>
+            <button onClick={handleZoomReset} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Fit to Screen">
+              <Maximize className="w-5 h-5" />
+            </button>
+            <div className="w-full h-px bg-gray-200 my-1"></div>
+            <button onClick={handleZoomOut} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom Out">
+              <ZoomOut className="w-5 h-5" />
+            </button>
+            <div className="text-center mt-2 text-xs font-bold text-gray-500">
+              {Math.round(previewScale * 100)}%
+            </div>
+          </div>
+
           <div className="max-w-4xl w-full">
             
             {/* White Container Header */}
