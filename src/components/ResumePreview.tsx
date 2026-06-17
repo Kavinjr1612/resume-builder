@@ -58,11 +58,12 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
     setIsDownloading(true);
     trackResumeEvents.downloadPDF();
     try {
-      const fileName = `${(data.personalInfo?.name || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`;
-      await generatePDF(data, fileName);
+      // Show instruction toast
+      alert('IMPORTANT: In the print dialog, ensure "Destination" is set to "Save as PDF", and "Margins" is set to "None" for a perfect layout.');
+      await generatePDF();
     } catch (error) {
       console.error('Error downloading PDF:', error);
-      alert('Failed to download PDF. Please try again.');
+      alert('Failed to trigger print dialog.');
     } finally {
       setIsDownloading(false);
     }
@@ -83,10 +84,10 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
   };
 
   return (
-    <div className="h-screen bg-gray-50/50 flex flex-col font-sans overflow-hidden">
+    <div className="h-screen bg-gray-50/50 flex flex-col font-sans overflow-hidden print:h-auto print:bg-white print:overflow-visible">
       
       {/* TOP HEADER (FULL WIDTH) */}
-      <div className="bg-white border-b border-gray-200 px-6 py-4 flex-shrink-0 z-20 shadow-sm relative">
+      <div className="bg-white border-b border-gray-200 px-6 py-4 flex-shrink-0 z-20 shadow-sm relative print:hidden">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-7xl mx-auto w-full">
           <div className="flex items-center gap-4">
             <button onClick={onBack} className="text-sm font-semibold text-gray-600 hover:text-gray-900 flex items-center gap-1.5">
@@ -136,10 +137,10 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
       </div>
 
       {/* 3-COLUMN MAIN LAYOUT */}
-      <div className="flex-1 flex overflow-hidden w-full">
+      <div className="flex-1 flex overflow-hidden w-full print:overflow-visible print:block">
         
         {/* LEFT SIDEBAR (Templates) */}
-        <div className="hidden md:block w-[280px] lg:w-[300px] xl:w-[320px] flex-shrink-0 bg-transparent p-4 overflow-y-auto space-y-5 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="hidden md:block w-[280px] lg:w-[300px] xl:w-[320px] flex-shrink-0 bg-transparent p-4 overflow-y-auto space-y-5 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] print:hidden">
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div className="bg-teal-700 text-white p-5">
               <h2 className="text-base font-bold flex items-center gap-2 mb-1">
@@ -225,10 +226,10 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
         </div>
 
         {/* CENTER CANVAS AREA */}
-        <div className="flex-1 overflow-auto p-4 sm:p-6 flex justify-center items-start relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="flex-1 overflow-auto p-4 sm:p-6 flex justify-center items-start relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] print:overflow-visible print:p-0 print:m-0 print:block">
           
           {/* Zoom Controls (Floating Left) */}
-          <div className="hidden lg:flex flex-col gap-3 sticky top-4 left-0 z-10 bg-white p-2 rounded-xl shadow-lg border border-gray-200 h-fit mr-4 flex-shrink-0">
+          <div className="hidden lg:flex flex-col gap-3 sticky top-4 left-0 z-10 bg-white p-2 rounded-xl shadow-lg border border-gray-200 h-fit mr-4 flex-shrink-0 print:hidden">
             <button onClick={handleZoomIn} className="p-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors" title="Zoom In">
               <ZoomIn className="w-5 h-5" />
             </button>
@@ -245,10 +246,10 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
             </div>
           </div>
 
-          <div className="w-full max-w-5xl">
+          <div className="w-full max-w-5xl print:max-w-none print:w-auto">
             
             {/* White Container Header */}
-            <div className="bg-indigo-50/50 rounded-t-xl border border-indigo-100 p-6 flex justify-between items-start mb-0 border-b-0">
+            <div className="bg-indigo-50/50 rounded-t-xl border border-indigo-100 p-6 flex justify-between items-start mb-0 border-b-0 print:hidden">
               <div>
                 <h2 className="text-xl font-black text-gray-900 mb-1">Your Professional Resume</h2>
                 <p className="text-sm text-gray-600 font-medium">Browser preview - Download for perfect A4 formatting</p>
@@ -264,7 +265,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
             </div>
 
             {/* Preview Notice Banner */}
-            <div className="bg-amber-50 border-x border-amber-100 p-4 border-t border-b flex items-start gap-3">
+            <div className="bg-amber-50 border-x border-amber-100 p-4 border-t border-b flex items-start gap-3 print:hidden">
               <AlertCircle className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
               <div>
                 <h3 className="text-sm font-bold text-amber-900 mb-1">Preview Notice</h3>
@@ -280,13 +281,14 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
             </div>
 
             {/* The Actual Resume Canvas */}
-            <div className="bg-gray-100/50 border-x border-gray-200 py-10 flex justify-center overflow-hidden">
+            <div className="bg-gray-100/50 border-x border-gray-200 py-10 flex justify-center overflow-hidden print:bg-transparent print:border-none print:py-0 print:overflow-visible">
               <div 
-                className="origin-top transition-transform duration-300 ease-out shadow-2xl"
+                id="resume-scaled-container"
+                className="origin-top transition-transform duration-300 ease-out shadow-2xl print:shadow-none"
                 style={{ transform: `scale(${previewScale})`, marginBottom: `-${(1 - previewScale) * 1056}px` }}
               >
                 <div 
-                  className="bg-white relative"
+                  className="bg-white relative print:bg-transparent"
                   style={{ width: '800px', minHeight: '1056px' }}
                 >
                   <div id="resume-for-pdf" className="w-full h-full bg-white">
@@ -297,7 +299,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
             </div>
 
             {/* Bottom Download Bar */}
-            <div className="bg-white border border-gray-200 rounded-b-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4 shadow-sm mb-10">
+            <div className="bg-white border border-gray-200 rounded-b-xl p-4 flex flex-col sm:flex-row justify-between items-center gap-4 shadow-sm mb-10 print:hidden">
               <div className="flex flex-wrap justify-center gap-4 text-xs font-bold text-gray-500">
                 <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-emerald-500"></div> A4 Format (210×297mm)</span>
                 <span className="flex items-center gap-1.5"><div className="w-2 h-2 rounded-full bg-blue-500"></div> High Resolution</span>
@@ -317,7 +319,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
         </div>
 
         {/* RIGHT SIDEBAR (Floating Info Cards) */}
-        <div className="hidden xl:block w-[280px] lg:w-[300px] xl:w-[320px] flex-shrink-0 bg-transparent p-4 overflow-y-auto space-y-5 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        <div className="hidden xl:block w-[280px] lg:w-[300px] xl:w-[320px] flex-shrink-0 bg-transparent p-4 overflow-y-auto space-y-5 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] print:hidden">
           
           {/* PDF Quality Guarantee Card */}
           <div className="bg-white border border-indigo-100 rounded-xl p-5 shadow-sm">
