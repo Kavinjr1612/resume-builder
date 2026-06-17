@@ -59,7 +59,7 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, onBack, onEdit }) =
     trackResumeEvents.downloadPDF();
     try {
       const fileName = `${(data.personalInfo?.name || 'Resume').replace(/\s+/g, '_')}_Resume.pdf`;
-      await generatePDF('resume-for-pdf', fileName);
+      await generatePDF(data, fileName);
     } catch (error) {
       console.error('Error downloading PDF:', error);
       alert('Failed to download PDF. Please try again.');
