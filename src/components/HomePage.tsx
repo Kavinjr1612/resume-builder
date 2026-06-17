@@ -1,7 +1,6 @@
 import React from 'react';
 import { FileText, Download, Smartphone, ArrowRight, Users, Clock, Shield, TrendingUp, Mail, Linkedin, User } from 'lucide-react';
 import BlogSection from './BlogSection';
-import ToolsSection from './ToolsSection';
 import ComparisonSection from './ComparisonSection';
 
 interface HomePageProps {
@@ -179,10 +178,6 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
         </div>
       </section>
 
-      {/* Tools Section */}
-      <div id="tools">
-        <ToolsSection />
-      </div>
 
       {/* Benefits Section */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
