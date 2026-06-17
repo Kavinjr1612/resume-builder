@@ -90,15 +90,36 @@ export const getTemplatesForUser = (data: ResumeData): AdaptiveTemplate[] => {
   const templates = getAllTemplates();
   
   // Set recommended flag on templates matching the user's level
-  return templates.map(template => ({
+  const withRecommended = templates.map(template => ({
     ...template,
     recommended: template.category === level || template.category === 'boxed'
   }));
+
+  // Sort templates according to recommendations
+  return withRecommended.sort((a, b) => {
+    // Put the top recommendation first
+    if (level === 'fresher') {
+      if (a.id === 'fresher-classic') return -1;
+      if (b.id === 'fresher-classic') return 1;
+    } else {
+      if (a.id === 'boxed-template') return -1;
+      if (b.id === 'boxed-template') return 1;
+    }
+    
+    // Sort remaining recommended items above non-recommended
+    if (a.recommended && !b.recommended) return -1;
+    if (!a.recommended && b.recommended) return 1;
+    
+    return 0;
+  });
 };
 
 export const getRecommendedTemplate = (data: ResumeData): AdaptiveTemplate => {
   const level = determineUserLevel(data);
   const templates = getAllTemplates();
-  // Find first template matching the level, fallback to boxed
-  return templates.find(t => t.category === level) || templates.find(t => t.id === 'boxed-template')!;
+  
+  if (level === 'fresher') {
+    return templates.find(t => t.id === 'fresher-classic')!;
+  }
+  return templates.find(t => t.id === 'boxed-template')!;
 };
