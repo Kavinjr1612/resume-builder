@@ -10,7 +10,7 @@ const FresherModernTemplate: React.FC<Props> = ({ data, showPhoto }) => {
   const { personalInfo, summary, education, experience, skills, projects, technicalSkills, softSkills } = data;
 
   return (
-    <div className="font-sans text-gray-800 bg-white p-8 max-w-[800px] mx-auto border border-gray-200 shadow-sm" style={{ minHeight: '1056px' }}>
+    <div className="font-sans text-gray-800 bg-white p-8 max-w-[800px] mx-auto border border-gray-200 shadow-sm" style={{ height: '1131px' }}>
       {/* Header */}
       <div className="flex justify-between items-center bg-blue-50 p-6 rounded-lg mb-6">
         <div>
