@@ -38,8 +38,8 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
         institution: 'University of California, Berkeley',
         degree: 'Bachelor of Science',
         field: 'Computer Science',
-        startDate: '2020-08',
-        endDate: '2024-05',
+        startDate: 'Aug 2020',
+        endDate: 'May 2024',
         gpa: '3.8/4.0',
         achievements: 'Dean\'s List, Relevant: Data Structures, Algorithms, Databases'
       }
@@ -49,8 +49,8 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
         id: '1',
         company: 'TechStart Inc.',
         position: 'Software Development Intern',
-        startDate: '2023-06',
-        endDate: '2023-08',
+        startDate: 'Jun 2023',
+        endDate: 'Aug 2023',
         description: '• Built web apps using React and Node.js\n• Collaborated with 5 developers on client projects\n• Improved user experience by 25%',
         isCurrentJob: false
       },
@@ -58,8 +58,8 @@ const ResumeForm: React.FC<ResumeFormProps> = ({ data, onUpdateData, onBack, onP
         id: '2',
         company: 'University IT Department',
         position: 'Student Web Developer',
-        startDate: '2022-09',
-        endDate: '2023-05',
+        startDate: 'Sep 2022',
+        endDate: 'May 2023',
         description: '• Maintained university websites with HTML, CSS, JS\n• Trained 3 new developers on best practices',
         isCurrentJob: false
       }
