@@ -34,14 +34,6 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                 <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
                 <h1 className="text-lg sm:text-2xl font-bold tracking-tight text-slate-900 font-display hidden sm:block">Building Resume</h1>
               </div>
-              <a
-                href="https://digitalheroesco.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-blue-100 text-blue-700 hover:bg-blue-200 border border-blue-200 px-2 py-1 sm:px-3 sm:py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-colors"
-              >
-                Built for Digital Heroes
-              </a>
             </div>
             <div className="flex items-center space-x-4">
               <a
@@ -331,18 +323,8 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                 </ul>
               </div>
             </div>
-            <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-8 flex flex-col sm:flex-row justify-between items-center text-slate-500 text-sm gap-6">
+            <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-8 flex justify-center items-center text-slate-500 text-sm">
               <p>Made with for students worldwide.</p>
-              <div className="flex flex-col sm:flex-row items-center">
-                <a
-                  href="https://digitalheroesco.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors shadow-lg shadow-blue-900/20"
-                >
-                  Built for Digital Heroes
-                </a>
-              </div>
             </div>
           </div>
         </FadeInSection>
