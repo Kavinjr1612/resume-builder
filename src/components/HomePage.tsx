@@ -24,28 +24,28 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-white">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       {/* Header */}
-      <header className="bg-white dark:bg-slate-900 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-50">
+      <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 sm:space-x-4">
               <div className="flex items-center space-x-2">
-                <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-indigo-600 dark:text-indigo-400" />
-                <h1 className="text-lg sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white font-display hidden sm:block">Building Resume</h1>
+                <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
+                <h1 className="text-lg sm:text-2xl font-bold tracking-tight text-slate-900 font-display hidden sm:block">Building Resume</h1>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <a
                 href="#connect-section"
-                className="hidden sm:flex items-center space-x-2 text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:text-indigo-400 transition-colors text-sm font-medium"
+                className="hidden sm:flex items-center space-x-2 text-slate-600 hover:text-blue-600 transition-colors text-sm font-medium"
               >
                 <Mail className="h-4 w-4" />
                 <span>Connect</span>
               </a>
               <button
                 onClick={onGetStarted}
-                className="bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-3 py-2 sm:px-6 sm:py-2 rounded-full hover:from-indigo-500 hover:to-violet-500 hover:shadow-md transition-colors font-medium text-sm sm:text-base"
+                className="bg-blue-600 text-white px-3 py-2 sm:px-6 sm:py-2 rounded-full hover:bg-blue-700 hover:shadow-md transition-colors font-medium text-sm sm:text-base"
               >
                 <span className="hidden sm:inline">Get Started Free</span>
                 <span className="sm:hidden">Start Free</span>
@@ -61,24 +61,24 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8">
         <FadeInSection>
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white font-display mb-4 sm:mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 font-display mb-4 sm:mb-6 leading-tight">
               Create Your Perfect
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400 block sm:inline"> Resume</span>
-              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 text-slate-600 dark:text-slate-400">in Minutes, Not Hours</span>
+              <span className="text-transparent bg-clip-text bg-blue-600 block sm:inline"> Resume</span>
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-2 text-slate-600">in Minutes, Not Hours</span>
             </h2>
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+            <p className="text-lg sm:text-xl text-slate-600 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
               Professional resume builder designed specifically for students and freshers.
               Create stunning resumes with multiple templates - completely free!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 sm:mb-8 px-4">
               <button
                 onClick={onGetStarted}
-                className="w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-violet-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-sm hover:shadow-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 inline-flex items-center justify-center space-x-2"
+                className="w-full sm:w-auto bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-sm hover:shadow-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 inline-flex items-center justify-center space-x-2"
               >
                 <span>Build My Resume Free</span>
                 <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
-              <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+              <div className="flex items-center space-x-2 text-slate-600 text-sm sm:text-base">
                 <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
                 <span>No signup required • 100% Free</span>
               </div>
@@ -88,15 +88,15 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
             <div className="grid grid-cols-3 gap-4 sm:gap-6 max-w-2xl mx-auto px-4">
               <div className="text-center">
                 <div className="text-xl sm:text-2xl font-bold tracking-tight text-teal-600">95%</div>
-                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Success Rate</div>
+                <div className="text-xs sm:text-sm text-slate-600">Success Rate</div>
               </div>
               <div className="text-center">
                 <div className="text-xl sm:text-2xl font-bold tracking-tight text-purple-600">2 Min</div>
-                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Average Time</div>
+                <div className="text-xs sm:text-sm text-slate-600">Average Time</div>
               </div>
               <div className="text-center">
                 <div className="text-xl sm:text-2xl font-bold tracking-tight text-orange-600">100%</div>
-                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Free Forever</div>
+                <div className="text-xs sm:text-sm text-slate-600">Free Forever</div>
               </div>
             </div>
           </div>
@@ -106,42 +106,42 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       {/* Features Section */}
 
 
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 dark:bg-slate-950">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <FadeInSection>
           <div className="max-w-6xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white font-display text-center mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-4">
               Why Choose Building Resume's Free Resume Builder?
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 text-center mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
+            <p className="text-slate-600 text-center mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
               Join thousands of students and freshers who've successfully landed their dream jobs using our professional resume builder
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              <div className="text-center p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-shadow">
-                <div className="bg-gradient-to-r from-indigo-600 to-violet-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="text-center p-4 sm:p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-shadow">
+                <div className="bg-blue-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white font-display mb-2">Professional Templates</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 font-display mb-2">Professional Templates</h4>
+                <p className="text-slate-600 text-sm sm:text-base">
                   Choose from multiple professionally designed templates tailored for different industries and roles
                 </p>
               </div>
 
-              <div className="text-center p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md bg-gradient-to-br from-orange-50 to-orange-100 hover:shadow-lg transition-shadow">
+              <div className="text-center p-4 sm:p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md bg-gradient-to-br from-orange-50 to-orange-100 hover:shadow-lg transition-shadow">
                 <div className="bg-orange-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Download className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white font-display mb-2">Instant PDF Download</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 font-display mb-2">Instant PDF Download</h4>
+                <p className="text-slate-600 text-sm sm:text-base">
                   Download your resume as a high-quality PDF instantly, ready for job applications and interviews
                 </p>
               </div>
 
-              <div className="text-center p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 dark:bg-slate-950 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md bg-gradient-to-br from-purple-50 to-purple-100 hover:shadow-lg transition-shadow sm:col-span-2 lg:col-span-1">
+              <div className="text-center p-4 sm:p-6 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md bg-gradient-to-br from-purple-50 to-purple-100 hover:shadow-lg transition-shadow sm:col-span-2 lg:col-span-1">
                 <div className="bg-purple-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Smartphone className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white font-display mb-2">Mobile Optimized</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">
+                <h4 className="text-lg sm:text-xl font-semibold text-slate-900 font-display mb-2">Mobile Optimized</h4>
+                <p className="text-slate-600 text-sm sm:text-base">
                   Create and edit your resume on any device with our fully responsive and mobile-friendly design
                 </p>
               </div>
@@ -153,10 +153,10 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       {/* Benefits Section */}
 
 
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 dark:bg-slate-950">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <FadeInSection>
           <div className="max-w-6xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white font-display text-center mb-8 sm:mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-8 sm:mb-12">
               Perfect for Students & Freshers
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -165,17 +165,17 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                   <Users className="h-5 w-5 sm:h-6 sm:w-6 text-green-600" />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white font-display mb-2">Student-Friendly</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Designed specifically for college students and recent graduates with limited work experience</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-slate-900 font-display mb-2">Student-Friendly</h4>
+                  <p className="text-slate-600 text-sm sm:text-base">Designed specifically for college students and recent graduates with limited work experience</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
-                <div className="bg-indigo-100 dark:bg-indigo-900/30 p-2 sm:p-3 rounded-2xl flex-shrink-0">
-                  <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-indigo-600 dark:text-indigo-400" />
+                <div className="bg-blue-100 p-2 sm:p-3 rounded-2xl flex-shrink-0">
+                  <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white font-display mb-2">Quick & Easy</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Create a professional resume in just 2-3 minutes without any design skills required</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-slate-900 font-display mb-2">Quick & Easy</h4>
+                  <p className="text-slate-600 text-sm sm:text-base">Create a professional resume in just 2-3 minutes without any design skills required</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4 sm:col-span-2 lg:col-span-1">
@@ -183,8 +183,8 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                   <TrendingUp className="h-5 w-5 sm:h-6 sm:w-6 text-purple-600" />
                 </div>
                 <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white font-display mb-2">ATS Optimized</h4>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Our templates are optimized for Applicant Tracking Systems used by most companies</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-slate-900 font-display mb-2">ATS Optimized</h4>
+                  <p className="text-slate-600 text-sm sm:text-base">Our templates are optimized for Applicant Tracking Systems used by most companies</p>
                 </div>
               </div>
             </div>
@@ -204,32 +204,32 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       {/* FAQ Section */}
 
 
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900 dark:bg-slate-950">
+      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <FadeInSection>
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white font-display text-center mb-8 sm:mb-12">
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display text-center mb-8 sm:mb-12">
               Frequently Asked Questions
             </h3>
             <div className="space-y-4 sm:space-y-6">
-              <div className="bg-slate-50 dark:bg-slate-950 p-4 sm:p-6 rounded-lg">
-                <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white font-display mb-2">Is this resume builder really free?</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Yes! Our resume builder is completely free to use. You can create unlimited resumes and download PDFs without any cost or hidden fees.</p>
+              <div className="bg-slate-50 p-4 sm:p-6 rounded-lg">
+                <h4 className="text-base sm:text-lg font-semibold text-slate-900 font-display mb-2">Is this resume builder really free?</h4>
+                <p className="text-slate-600 text-sm sm:text-base">Yes! Our resume builder is completely free to use. You can create unlimited resumes and download PDFs without any cost or hidden fees.</p>
               </div>
-              <div className="bg-slate-50 dark:bg-slate-950 p-4 sm:p-6 rounded-lg">
-                <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white font-display mb-2">Do I need to create an account?</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">No signup required! You can start building your resume immediately without creating an account or providing any personal information beyond what goes in your resume.</p>
+              <div className="bg-slate-50 p-4 sm:p-6 rounded-lg">
+                <h4 className="text-base sm:text-lg font-semibold text-slate-900 font-display mb-2">Do I need to create an account?</h4>
+                <p className="text-slate-600 text-sm sm:text-base">No signup required! You can start building your resume immediately without creating an account or providing any personal information beyond what goes in your resume.</p>
               </div>
-              <div className="bg-slate-50 dark:bg-slate-950 p-4 sm:p-6 rounded-lg">
-                <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white font-display mb-2">How many templates are available?</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">We offer 6 professional templates including Modern, Classic, Minimal, Executive, Academic, and Technical designs to suit different career paths and preferences.</p>
+              <div className="bg-slate-50 p-4 sm:p-6 rounded-lg">
+                <h4 className="text-base sm:text-lg font-semibold text-slate-900 font-display mb-2">How many templates are available?</h4>
+                <p className="text-slate-600 text-sm sm:text-base">We offer 6 professional templates including Modern, Classic, Minimal, Executive, Academic, and Technical designs to suit different career paths and preferences.</p>
               </div>
-              <div className="bg-slate-50 dark:bg-slate-950 p-4 sm:p-6 rounded-lg">
-                <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white font-display mb-2">Are the resume templates ATS-friendly?</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">Yes! All our templates are designed to be ATS (Applicant Tracking System) compatible, ensuring your resume gets past automated screening systems used by most companies.</p>
+              <div className="bg-slate-50 p-4 sm:p-6 rounded-lg">
+                <h4 className="text-base sm:text-lg font-semibold text-slate-900 font-display mb-2">Are the resume templates ATS-friendly?</h4>
+                <p className="text-slate-600 text-sm sm:text-base">Yes! All our templates are designed to be ATS (Applicant Tracking System) compatible, ensuring your resume gets past automated screening systems used by most companies.</p>
               </div>
-              <div className="bg-slate-50 dark:bg-slate-950 p-4 sm:p-6 rounded-lg">
-                <h4 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white font-display mb-2">Can I edit my resume after downloading?</h4>
-                <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base">While the PDF is final, you can always come back to our website and recreate your resume with updates. We recommend keeping your information handy for future edits.</p>
+              <div className="bg-slate-50 p-4 sm:p-6 rounded-lg">
+                <h4 className="text-base sm:text-lg font-semibold text-slate-900 font-display mb-2">Can I edit my resume after downloading?</h4>
+                <p className="text-slate-600 text-sm sm:text-base">While the PDF is final, you can always come back to our website and recreate your resume with updates. We recommend keeping your information handy for future edits.</p>
               </div>
             </div>
           </div>
@@ -239,7 +239,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       {/* CTA Section */}
 
 
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-indigo-600 to-violet-600">
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 bg-blue-600">
         <FadeInSection>
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white mb-4 sm:mb-6">
@@ -250,7 +250,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
             </p>
             <button
               onClick={onGetStarted}
-              className="bg-white dark:bg-slate-900 dark:bg-slate-950 text-indigo-600 dark:text-indigo-400 px-8 sm:px-10 py-3 sm:py-4 hover:bg-slate-50 dark:bg-slate-950 rounded-full text-base sm:text-lg font-semibold shadow-sm hover:shadow-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 inline-flex items-center space-x-2"
+              className="bg-white text-blue-600 px-8 sm:px-10 py-3 sm:py-4 hover:bg-slate-50 rounded-full text-base sm:text-lg font-semibold shadow-sm hover:shadow-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 inline-flex items-center space-x-2"
             >
               <span>Start Building Now - It's Free!</span>
               <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -263,13 +263,13 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       {/* Footer */}
 
 
-      <footer className="bg-slate-900 dark:bg-slate-950 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-slate-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
         <FadeInSection>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12">
               <div>
                 <div className="flex items-center space-x-2 mb-6">
-                  <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-indigo-500 dark:text-indigo-400" />
+                  <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-blue-500" />
                   <span className="text-xl sm:text-2xl font-bold tracking-tight tracking-tight">Building Resume</span>
                 </div>
                 <p className="text-slate-400 mb-6 text-sm sm:text-base leading-relaxed">
@@ -277,8 +277,8 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                   Completely free, no signup required, and optimized for job success.
                 </p>
                 <div className="flex flex-wrap gap-4 text-sm">
-                  <a href="#" className="text-slate-500 dark:text-slate-500 hover:text-white transition-colors font-medium">Privacy Policy</a>
-                  <a href="#" className="text-slate-500 dark:text-slate-500 hover:text-white transition-colors font-medium">Terms of Service</a>
+                  <a href="#" className="text-slate-500 hover:text-white transition-colors font-medium">Privacy Policy</a>
+                  <a href="#" className="text-slate-500 hover:text-white transition-colors font-medium">Terms of Service</a>
                 </div>
               </div>
               <div>
@@ -305,17 +305,17 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                 <h4 className="text-sm font-semibold mb-6 text-slate-400 uppercase tracking-wider">Connect</h4>
                 <ul className="space-y-4 text-gray-300 text-sm sm:text-base">
                   <li className="flex items-start space-x-3">
-                    <User className="h-5 w-5 text-indigo-500 dark:text-indigo-400 mt-0.5 shrink-0" />
+                    <User className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
                     <span>Kavinesh S R</span>
                   </li>
                   <li className="flex items-start space-x-3">
-                    <Mail className="h-5 w-5 text-indigo-500 dark:text-indigo-400 mt-0.5 shrink-0" />
+                    <Mail className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
                     <a href="mailto:karaja1612@gmail.com" className="hover:text-blue-400 transition-colors">
                       karaja1612@gmail.com
                     </a>
                   </li>
                   <li className="flex items-start space-x-3">
-                    <Linkedin className="h-5 w-5 text-indigo-500 dark:text-indigo-400 mt-0.5 shrink-0" />
+                    <Linkedin className="h-5 w-5 text-blue-500 mt-0.5 shrink-0" />
                     <a href="https://linkedin.com/in/kavineshsr" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">
                       linkedin.com/in/kavineshsr
                     </a>
@@ -323,7 +323,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
                 </ul>
               </div>
             </div>
-            <div className="border-t border-gray-800 dark:border-slate-800 mt-12 sm:mt-16 pt-8 flex justify-center items-center text-slate-500 dark:text-slate-500 text-sm">
+            <div className="border-t border-gray-800 mt-12 sm:mt-16 pt-8 flex justify-center items-center text-slate-500 text-sm">
               <p>Made with for students worldwide.</p>
             </div>
           </div>
@@ -334,7 +334,7 @@ const HomePage: React.FC<HomePageProps> = ({ onGetStarted, onReadMore }) => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 p-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-full shadow-lg hover:from-indigo-500 hover:to-violet-500 hover:shadow-xl transition-all duration-300 z-50 hover:-translate-y-1"
+          className="fixed bottom-6 right-6 p-3 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300 z-50 hover:-translate-y-1"
           aria-label="Scroll to top"
         >
           <ChevronUp className="h-6 w-6" />
